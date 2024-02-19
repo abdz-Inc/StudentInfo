@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:StudentInfo.ViewModel"
+             x:Class="StudentInfo.View.StudentDetails"
+             Title="StudentDetails"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label"
+               x:Key="LabelStyle">
+            <Setter Property="FontSize"
+                    Value="16" />
+            <Setter Property="TextColor"
+                    Value="{DynamicResource LabelTextColor}" />
+            <Setter Property="HorizontalOptions"
+                    Value="Center" />
+        </Style>
+        <Style TargetType="Grid"
+               x:Key="GridStyle">
+            <Setter Property="BackgroundColor"
+                    Value="White" />
+            <Setter Property="RowDefinitions"
+                    Value="50" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView BackgroundColor="White"
+        BindingContext="{Binding SelectedStudent}">
+
+        <StackLayout Spacing="20">
+
+            <Grid Style="{x:StaticResource GridStyle}"
+                  ColumnDefinitions="*, *">
+
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Grid.ColumnSpan="2"
+                       Text="{Binding Name} "
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center" />
+            </Grid>
+
+            <SwipeView>
+                <SwipeView.RightItems>
+                    <SwipeItems>
+                        <SwipeItem Text="Edit"
+                                   IconImageSource="edit.png"
+                                   BackgroundColor="LightPink" />
+                    </SwipeItems>
+                </SwipeView.RightItems>
+                <Grid Style="{x:StaticResource GridStyle}"
+                      ColumnDefinitions="*, *">
+                        <Label Style="{x:StaticResource LabelStyle}"
+                               Text="Standard" />
+
+                        <Label Style="{x:StaticResource LabelStyle}"
+                               Grid.Column="1"
+                               Text="{Binding Standard}" />
+                    </Grid>
+            </SwipeView>
+            <Grid Style="{x:StaticResource GridStyle}"
+                  ColumnDefinitions="*, *">
+
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Text="Roll Number " />
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Grid.Column="1"
+                       Text="{Binding RollNo}" />
+
+            </Grid>
+
+            <SwipeView>
+                <SwipeView.RightItems>
+                    <SwipeItems>
+                        <SwipeItem 
+                            Clicked="SwipeItem_Clicked"
+                            Text="View"
+                                   IconImageSource="detail.png"
+                                   BackgroundColor="AliceBlue" />
+                    </SwipeItems>
+                </SwipeView.RightItems>
+                <Grid Style="{x:StaticResource GridStyle}"
+                  ColumnDefinitions="*, *">
+                
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Text="Teacher" />
+
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Grid.Column="1"
+                       Text="{Binding ClassTeacher.Name}" />
+               
+            </Grid>
+            </SwipeView>
+            <Grid Style="{x:StaticResource GridStyle}"
+                  ColumnDefinitions="*, *">
+
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Text="Address" />
+
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Grid.Column="1"
+                       Text="{Binding Address}" />
+
+            </Grid>
+
+            <Grid Style="{x:StaticResource GridStyle}"
+                  ColumnDefinitions="*, *">
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Text="PostalCode " />
+
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Grid.Column="1"
+                       Text="{Binding PostalCode}" />
+
+            </Grid>
+            <Grid Style="{x:StaticResource GridStyle}"
+                  ColumnDefinitions="*, *">
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Text="City " />
+
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Grid.Column="1"
+                       Text="{Binding City}" />
+            </Grid>
+
+            <Grid Style="{x:StaticResource GridStyle}"
+                  ColumnDefinitions="*, *">
+
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Text="Phone Number " />
+
+
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Grid.Column="1"
+                       Text="{Binding PhoneNumber}" />
+            </Grid>
+
+            <Grid Style="{x:StaticResource GridStyle}"
+                  ColumnDefinitions="*, *">
+
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Text="Blood Group " />
+
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Grid.Column="1"
+                       Text="{Binding BloodGroup}" />
+
+            </Grid>
+
+            <Grid Style="{x:StaticResource GridStyle}"
+                  ColumnDefinitions="*, *">
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Text="Date Of Birth " />
+
+                <Label Style="{x:StaticResource LabelStyle}"
+                       Grid.Column="1"
+                       Text="{Binding DOB}" />
+            </Grid>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

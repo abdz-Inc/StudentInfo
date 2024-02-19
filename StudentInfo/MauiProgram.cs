@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using StudentInfo.View;
+using StudentInfo.ViewModel;
 
 namespace StudentInfo
 {
@@ -14,6 +16,9 @@ namespace StudentInfo
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<StaticViewModel>();
+            builder.Services.AddTransient<StudentDetails>();
 
 #if DEBUG
     		builder.Logging.AddDebug();
